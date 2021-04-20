@@ -88,7 +88,5 @@ namespace Prueba
         {
             PacientDataGrid.Items.Refresh();
         }
-
-
     }
 }
