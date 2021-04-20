@@ -65,6 +65,7 @@ namespace Prueba
             _context.SaveChanges();
             Refresh();
         }
+
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Content = new MainCRUD();
