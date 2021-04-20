@@ -51,6 +51,7 @@ namespace Prueba
             _context.SaveChanges();
             Refresh();
         }
+
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             var patient = (Patient)PacientDataGrid.SelectedItem;
