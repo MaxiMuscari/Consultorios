@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="Prueba.MainMedicsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Prueba"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="medicViewSource"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="350 "/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label Content="Buscar" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBox x:Name="txtSearch" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="300" Margin="10"/>
+            <Button x:Name="btnSearch" Content="Buscar"  Height="29" Width="112"/>
+        </StackPanel>
+
+        <DockPanel Grid.Row="1" Grid.Column="0">
+            <DataGrid x:Name="MedicDataGrid" AutoGenerateColumns="False" 
+              EnableRowVirtualization="True" 
+              ItemsSource="{Binding Source={StaticResource medicViewSource}}" 
+              RowDetailsVisibilityMode="VisibleWhenSelected">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Name}" Header="Nombre" 
+                                Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Surname}" Header="Apellido" 
+                                Width="*"/>
+                    <DataGridTextColumn Binding="{Binding DNI}" Header="DNI" 
+                                Width="*"/>
+                    <DataGridTextColumn Binding="{Binding CUIL}" Header="CUIL" 
+                                Width="*"/>
+                    <DataGridTextColumn Binding="{Binding PhoneNumber}" Header="Numero de telefono" 
+                                Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Especialities}" Header="Especialidad" 
+                                Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
+            <Button x:Name="btnAddMedic" Content="Agregar medico" Height="29" Width="112" Click="btnAddMedic_Click"/>
+            <Button x:Name="btnModify" Content="Modificar"  Height="29" Width="112" Click="btnModify_Click"/>
+            <Button x:Name="btnDelete" Content="Eliminar"  Height="29" Width="112" Click="btnDelete_Click"/>
+            <Button x:Name="btnCancel" Content="Cancelar"  Height="29" Width="112" Click="btnCancel_Click"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>
