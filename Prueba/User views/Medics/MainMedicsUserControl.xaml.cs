@@ -54,8 +54,8 @@ namespace Prueba
         }
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            var x = (Medic)MedicDataGrid.SelectedItem;
-            _context.Medics.RemoveRange(x);
+            var medic = (Medic)MedicDataGrid.SelectedItem;
+            _context.Medics.RemoveRange(medic);
             _context.SaveChanges();
             Refresh();
         }
@@ -64,6 +64,37 @@ namespace Prueba
             Application.Current.MainWindow.Content = new MainCRUD();
         }
 
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            var search = txtSearch.Text.ToLower();
+
+            medicViewSource.Source = _context.Medics
+                .AsEnumerable()
+                .Where(x => x.Name.ToLower().Contains(search) ||
+                    x.Surname.ToLower().Contains(search) ||
+                    x.DNI.ToLower().Contains(search) ||
+                    x.CUIL.ToLower().Contains(search) ||
+                    x.PhoneNumber.ToLower().Contains(search) ||
+                    GetPosibleEspecialities(search).Any(e => e == x.Especialities))
+                .ToList();
+        }
+
+        private List<Especialities> GetPosibleEspecialities(string search)
+        {
+            List<Especialities> especialities = new List<Especialities>();
+
+            var array = Enum.GetValues(typeof(Especialities));
+
+            foreach (Especialities especiality in array)
+            {
+                if (especiality.ToString().ToLower().Contains(search))
+                {
+                    especialities.Add(especiality);
+                }
+            }
+
+            return especialities;
+        }
 
 
         public void Refresh()

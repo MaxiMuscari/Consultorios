@@ -32,5 +32,10 @@ namespace Prueba
         {
             Application.Current.MainWindow.Content = new MainMedicsUserControl();
         }
+
+        private void btnTurns_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Content = new MainTurnUserControl();
+        }
     }
 }

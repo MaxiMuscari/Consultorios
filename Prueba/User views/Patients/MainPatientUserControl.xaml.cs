@@ -41,6 +41,7 @@ namespace Prueba
             // bind to the source
             pacientViewSource.Source = _context.Patients.Local.ToObservableCollection();
 
+
         }
         private void btnAddPacient_Click(object sender, RoutedEventArgs e)
         {
@@ -55,12 +56,6 @@ namespace Prueba
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             var patient = (Patient)PacientDataGrid.SelectedItem;
-
-            if (patient == null)
-            {
-                return;
-            }
-
             _context.Patients.RemoveRange(patient);
             _context.SaveChanges();
             Refresh();

@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 
 namespace Prueba
-{   public enum Especialities { Cirujano, Enfermero}
+{   public enum Especialities { Dermatologia, Cardiologia, Hematologia, Nefrologia, Neurologia, Traumatologia, Oftalmologia }
     public class Medic
     {
         public Guid Id { get; set; }
@@ -16,15 +16,14 @@ namespace Prueba
         //public virtual Especiality Especiality { get; set; }
         public Especialities Especialities { get; set; }
 
-        public Medic() { }
 
 
-        public Medic(string name, string surname, string dni, string cuil, string phoneNumber, Especialities especialities)
+        public Medic(string name, string surname, string DNI, string CUIL, string phoneNumber, Especialities especialities)
         {
             this.Name = name;
             this.Surname = surname;
-            this.DNI = dni;
-            this.CUIL = cuil;
+            this.DNI = DNI;
+            this.CUIL = CUIL;
             this.PhoneNumber = phoneNumber;
             this.Especialities = especialities;
         }

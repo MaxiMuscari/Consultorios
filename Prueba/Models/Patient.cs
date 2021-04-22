@@ -15,7 +15,6 @@ namespace Prueba
         public string MedicalSecurity { get; set; }
         public string PhoneNumber { get; set; }
 
-        public Patient() { }
 
         public Patient(string Name, string Surname, string DNI, string Address, string MedicalSecurity, string PhoneNumber)
         {

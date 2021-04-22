@@ -27,6 +27,10 @@ namespace Prueba
             InitializeComponent();
         }
 
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            cmbEspecialities.ItemsSource = Enum.GetValues(typeof(Especialities));
+        }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
@@ -38,13 +42,10 @@ namespace Prueba
             _context.SaveChanges();
             Application.Current.MainWindow.Content = new MainMedicsUserControl();
         }
+
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Content = new MainMedicsUserControl();
-        }
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            cmbEspecialities.ItemsSource = Enum.GetValues(typeof(Especialities));
         }
 
         public void txtClean()
@@ -54,7 +55,6 @@ namespace Prueba
             txtDNI.Text = "";
             txtCUIL.Text = "";
             txtPhoneNumber.Text = "";
-            //txtAddress.Text = "";
         }
 
         public void validationClean()
@@ -64,8 +64,8 @@ namespace Prueba
             DNIValidationMsj.Text = "";
             CUILValidationMsj.Text = "";
             phoneNumberValidationMsj.Text = "";
-            //addressValidationMsj.Text = "";
         }
+
         private void txtName_TextChanged(object sender, TextChangedEventArgs e)
         {
             var text = txtName.Text;
@@ -129,7 +129,6 @@ namespace Prueba
                 btnSave.IsEnabled = true;
             }
         }
-
 
         private void txtPhoneNumber_TextChanged(object sender, TextChangedEventArgs e)
         {

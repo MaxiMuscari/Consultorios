@@ -27,13 +27,11 @@ namespace Prueba
     {
         private readonly ConsultorioContext _context = new ConsultorioContext();
 
-        //private CollectionViewSource pacientViewSource;
 
 
         public MainWindow()
         {
             InitializeComponent();
-            //  pacientViewSource = (CollectionViewSource)FindResource(nameof(pacientViewSource));
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -45,8 +43,6 @@ namespace Prueba
             // load the entities into EF Core
             _context.Patients.Load();
 
-            // bind to the source
-            //pacientViewSource.Source = _context.Patients.Local.ToObservableCollection();
 
         }
 

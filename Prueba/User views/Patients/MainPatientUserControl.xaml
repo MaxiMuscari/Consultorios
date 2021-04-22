@@ -10,7 +10,7 @@
         <CollectionViewSource x:Key="pacientViewSource"/>
     </UserControl.Resources>
 
-    <Grid>
+    <Grid AutomationProperties.IsOffscreenBehavior="Onscreen">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="350 "/>
@@ -26,7 +26,7 @@
             <DataGrid x:Name="PacientDataGrid" AutoGenerateColumns="False" 
               EnableRowVirtualization="True" 
               ItemsSource="{Binding Source={StaticResource pacientViewSource}}" 
-              RowDetailsVisibilityMode="VisibleWhenSelected">
+              RowDetailsVisibilityMode="VisibleWhenSelected" CanUserAddRows="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Name}" Header="Nombre" 
                                 Width="*"/>
@@ -45,7 +45,7 @@
         </DockPanel>
         
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
-            <Button x:Name="btnAddPacient" Content="Agregar paciente" Height="29" Width="112" Click="btnAddPacient_Click"/>
+            <Button x:Name="btnAddPacient" Content="Agregar" Height="29" Width="112" Click="btnAddPacient_Click"/>
             <Button x:Name="btnModify" Content="Modificar"  Height="29" Width="112" Click="btnModify_Click"/>
             <Button x:Name="btnDelete" Content="Eliminar"  Height="29" Width="112" Click="btnDelete_Click"/>
             <Button x:Name="btnCancel" Content="Cancelar"  Height="29" Width="112" Click="btnCancel_Click"/>
