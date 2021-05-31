@@ -33,15 +33,16 @@ namespace ConsultoriosApp
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            
             // load the entities into EF Core
-            _context.Medics.Load();
+            _context.Turns.Load();
 
             // bind to the source
             turnViewSource.Source = _context.Turns.Local.ToObservableCollection();
 
         }
 
-        private void btnAddMedic_Click(object sender, RoutedEventArgs e)
+        private void btnAddTurn_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Content = new AddTurnUserControl();
         }

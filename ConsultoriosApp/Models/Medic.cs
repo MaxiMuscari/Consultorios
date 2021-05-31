@@ -15,6 +15,7 @@ namespace ConsultoriosApp
         public string PhoneNumber { get; set; }
         //public virtual Especiality Especiality { get; set; }
         public Especialities Especialities { get; set; }
+        public string Names { get { return $"{Name} {Surname}"; } }
 
 
 

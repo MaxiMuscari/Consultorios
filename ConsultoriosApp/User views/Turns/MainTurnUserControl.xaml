@@ -27,26 +27,22 @@
             <DataGrid x:Name="TurnDataGrid" AutoGenerateColumns="False" 
               EnableRowVirtualization="True" 
               ItemsSource="{Binding Source={StaticResource turnViewSource}}" 
-              RowDetailsVisibilityMode="VisibleWhenSelected" CanUserAddRows="False">
+              RowDetailsVisibilityMode="VisibleWhenSelected" CanUserAddRows="False" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Name}" Header="Nombre" 
+                    <DataGridTextColumn Binding="{Binding Patient.Names}" Header="Paciente" 
                                 Width="*"/>
-                    <DataGridTextColumn Binding="{Binding Surname}" Header="Apellido" 
+                    <DataGridTextColumn Binding="{Binding Medic.Names}" Header="Medico" 
                                 Width="*"/>
-                    <DataGridTextColumn Binding="{Binding DNI}" Header="DNI" 
+                    <DataGridTextColumn Binding="{Binding Schedule}" Header="Fecha de turno" 
                                 Width="*"/>
-                    <DataGridTextColumn Binding="{Binding CUIL}" Header="CUIL" 
-                                Width="*"/>
-                    <DataGridTextColumn Binding="{Binding PhoneNumber}" Header="Numero de telefono" 
-                                Width="*"/>
-                    <DataGridTextColumn Binding="{Binding Especialities}" Header="Especialidad" 
+                    <DataGridCheckBoxColumn Binding="{Binding Paid}" Header="Pagó" 
                                 Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
-            <Button x:Name="btnAddMedic" Content="Agregar" Height="29" Width="112" Click="btnAddMedic_Click"/>
+            <Button x:Name="btnAddTurn" Content="Agregar" Height="29" Width="112" Click="btnAddTurn_Click" Cursor="Hand"/>
             <Button x:Name="btnModify" Content="Modificar"  Height="29" Width="112" Click="btnModify_Click"/>
             <Button x:Name="btnDelete" Content="Eliminar"  Height="29" Width="112" Click="btnDelete_Click"/>
             <Button x:Name="btnCancel" Content="Cancelar"  Height="29" Width="112" Click="btnCancel_Click"/>

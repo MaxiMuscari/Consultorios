@@ -58,6 +58,7 @@ namespace ConsultoriosApp
             var medic = (Medic)MedicDataGrid.SelectedItem;
             _context.Medics.RemoveRange(medic);
             _context.SaveChanges();
+            Search();
             Refresh();
         }
         private void btnCancel_Click(object sender, RoutedEventArgs e)

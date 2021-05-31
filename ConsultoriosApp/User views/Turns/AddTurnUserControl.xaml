@@ -5,8 +5,56 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ConsultoriosApp"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    
+    <Grid AutomationProperties.IsOffscreenBehavior="Onscreen">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="175"/>
+            <RowDefinition Height="175"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Row="0"  Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Label Content="Introduzca DNI de paciente" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBox x:Name="txtSearch" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="300" Margin="10" /><!--KeyDown="txtSearch_KeyDown"-->
+            <Button x:Name="btnSearch" Content="Buscar"  Height="29" Width="112" Click="btnSearch_Click" Cursor="Hand"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <TextBlock x:Name="patientData" TextWrapping="Wrap" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="Medico"/>
+            <ComboBox x:Name="cmbMedics" Width="120"
+                      DisplayMemberPath="Names"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Fecha"/>
+            <TextBox x:Name="txtDate" Width="100" GotFocus="txtDate_GotFocus" LostFocus="txtDate_LostFocus"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="Pagó" Width="100"/>
+            <CheckBox x:Name="chkPaid"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Hora"/>
+            <TextBox x:Name="txtHour" Width="100" LostFocus="txtHour_LostFocus" GotFocus="txtHour_GotFocus"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="btnSave" Content="Guardar" Click="btnSave_Click"/>
+            <Button x:Name="btnCancel" Content="Cancelar" Click="btnCancel_Click"/>
+        </StackPanel>
+
     </Grid>
 </UserControl>

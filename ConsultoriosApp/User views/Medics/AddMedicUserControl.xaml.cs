@@ -37,8 +37,8 @@ namespace ConsultoriosApp
             var especiality = (Especialities)Enum.Parse(typeof(Especialities), cmbEspecialities.SelectedItem.ToString());
             var medic = new Medic(txtName.Text, txtSurname.Text, txtDNI.Text, txtCUIL.Text, txtPhoneNumber.Text, especiality);
             _context.Medics.Add(medic);
-            txtClean();
-            validationClean();
+            //txtClean();
+            //validationClean();
             _context.SaveChanges();
             Application.Current.MainWindow.Content = new MainMedicsUserControl();
         }
@@ -48,23 +48,23 @@ namespace ConsultoriosApp
             Application.Current.MainWindow.Content = new MainMedicsUserControl();
         }
 
-        public void txtClean()
-        {
-            txtName.Text = "";
-            txtSurname.Text = "";
-            txtDNI.Text = "";
-            txtCUIL.Text = "";
-            txtPhoneNumber.Text = "";
-        }
+        //public void txtClean()
+        //{
+        //    txtName.Text = "";
+        //    txtSurname.Text = "";
+        //    txtDNI.Text = "";
+        //    txtCUIL.Text = "";
+        //    txtPhoneNumber.Text = "";
+        //}
 
-        public void validationClean()
-        {
-            nameValidationMsj.Text = "";
-            surnameValidationMsj.Text = "";
-            DNIValidationMsj.Text = "";
-            CUILValidationMsj.Text = "";
-            phoneNumberValidationMsj.Text = "";
-        }
+        //public void validationClean()
+        //{
+        //    nameValidationMsj.Text = "";
+        //    surnameValidationMsj.Text = "";
+        //    DNIValidationMsj.Text = "";
+        //    CUILValidationMsj.Text = "";
+        //    phoneNumberValidationMsj.Text = "";
+        //}
 
         private void txtName_TextChanged(object sender, TextChangedEventArgs e)
         {

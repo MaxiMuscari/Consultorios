@@ -58,6 +58,8 @@ namespace ConsultoriosApp
             var patient = (Patient)PacientDataGrid.SelectedItem;
             _context.Patients.RemoveRange(patient);
             _context.SaveChanges();
+
+            Search();
             Refresh();
         }
 

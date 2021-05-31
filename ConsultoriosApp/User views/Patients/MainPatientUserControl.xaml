@@ -15,18 +15,19 @@
             <RowDefinition/>
             <RowDefinition Height="350 "/>
             <RowDefinition/>
-        </Grid.RowDefinitions>
-    <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
+    </Grid.RowDefinitions>
+        
+    <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label Content="Buscar" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <TextBox x:Name="txtSearch" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="300" Margin="10" KeyDown="txtSearch_KeyDown"/>
             <Button x:Name="btnSearch" Content="Buscar"  Height="29" Width="112" Click="btnSearch_Click"/>
         </StackPanel>
         
-        <DockPanel Grid.Row="1" Grid.Column="0">
+        <DockPanel Grid.Row="1">
             <DataGrid x:Name="PacientDataGrid" AutoGenerateColumns="False" 
               EnableRowVirtualization="True" 
               ItemsSource="{Binding Source={StaticResource pacientViewSource}}" 
-              RowDetailsVisibilityMode="VisibleWhenSelected" CanUserAddRows="False">
+              RowDetailsVisibilityMode="VisibleWhenSelected" CanUserAddRows="False" IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Name}" Header="Nombre" 
                                 Width="*"/>

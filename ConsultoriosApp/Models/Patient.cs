@@ -14,6 +14,7 @@ namespace ConsultoriosApp
         public string Address { get; set; }
         public string MedicalSecurity { get; set; }
         public string PhoneNumber { get; set; }
+        public string Names { get { return $"{Name} {Surname}"; } }
 
 
         public Patient(string Name, string Surname, string DNI, string Address, string MedicalSecurity, string PhoneNumber)
