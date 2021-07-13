@@ -20,7 +20,7 @@
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
             <Label Content="Buscar" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <TextBox x:Name="txtSearch" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="300" Margin="10"/>
-            <Button x:Name="btnSearch" Content="Buscar"  Height="29" Width="112"/>
+            <Button x:Name="btnSearch" Content="Buscar"  Height="29" Width="112" Click="btnSearch_Click"/>
         </StackPanel>
 
         <DockPanel Grid.Row="1" Grid.Column="0">
@@ -33,7 +33,7 @@
                                 Width="*"/>
                     <DataGridTextColumn Binding="{Binding Medic.Names}" Header="Medico" 
                                 Width="*"/>
-                    <DataGridTextColumn Binding="{Binding Schedule}" Header="Fecha de turno" 
+                    <DataGridTextColumn Binding="{Binding Schedule, StringFormat={}{0:dd/MM/yyyy HH:mm tt}}" Header="Fecha de turno"
                                 Width="*"/>
                     <DataGridCheckBoxColumn Binding="{Binding Paid}" Header="Pagó" 
                                 Width="*"/>

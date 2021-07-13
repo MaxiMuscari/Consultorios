@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -49,8 +51,8 @@ namespace ConsultoriosApp
 
         private void btnModify_Click(object sender, RoutedEventArgs e)
         {
-            _context.SaveChanges();
-            Refresh();
+            Turn turn = (Turn)TurnDataGrid.SelectedItem;
+            Application.Current.MainWindow.Content = new ModifyTurnUserControl(turn);
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -65,9 +67,31 @@ namespace ConsultoriosApp
         {
             Application.Current.MainWindow.Content = new MainCRUD();
         }
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            Search();
+        }
+
         private void Refresh()
         {
             TurnDataGrid.Items.Refresh();
         }
+        private void Search()
+        {
+            
+            var search = txtSearch.Text.ToLower();
+
+            turnViewSource.Source = _context.Turns
+                   .AsEnumerable()
+                   .Where(x => x.Patient.Name.ToLower().Contains(search) ||
+                       x.Patient.Surname.ToLower().Contains(search) ||
+                       x.Patient.DNI.ToLower().Contains(search) ||
+                       x.Medic.Name.ToLower().Contains(search) ||
+                       x.Medic.Surname.ToLower().Contains(search) ||
+                       x.Schedule.Date.ToString("dd/MM/yyyy").Contains(search)
+                       )
+                   .ToList();
+        }
+
     }
 }

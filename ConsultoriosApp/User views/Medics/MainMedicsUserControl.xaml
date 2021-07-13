@@ -25,7 +25,7 @@
         <DockPanel Grid.Row="1" Grid.Column="0">
             <DataGrid x:Name="MedicDataGrid" AutoGenerateColumns="False" 
               EnableRowVirtualization="True" 
-              ItemsSource="{Binding Source={StaticResource medicViewSource}}" 
+              ItemsSource="{Binding Source={StaticResource medicViewSource}}"
               RowDetailsVisibilityMode="VisibleWhenSelected" CanUserAddRows="False" IsReadOnly="True">
                 <DataGrid.Columns >
                     <DataGridTextColumn Binding="{Binding Name}" Header="Nombre" 

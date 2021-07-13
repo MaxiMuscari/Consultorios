@@ -25,6 +25,7 @@ namespace ConsultoriosApp
     {
 
         private readonly ConsultorioContext _context = new ConsultorioContext();
+
         private Patient patient;
         public AddTurnUserControl()
         {
@@ -32,11 +33,8 @@ namespace ConsultoriosApp
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            txtDate.Text = "DD/MM/AAAA";
-            txtHour.Text = "HH:MM";
-
             cmbMedics.ItemsSource = _context.Medics.ToList();
-                        
+                       
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -53,57 +51,26 @@ namespace ConsultoriosApp
 
             if (patient != null)
             {
-                patientData.Text = $"{patient.Name} {patient.Surname}";
+                patientData.Text = $"{patient.Names}";
             }
         }
 
-        private void txtDate_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtDate.Text == "DD/MM/AAAA")
-            {
-                txtDate.Text = "";
-            }
-            
-        }
-
-        private void txtDate_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtDate.Text == "")
-            {
-                txtDate.Text = "DD/MM/AAAA";
-            }
-            
-        }
-        private void txtHour_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtHour.Text == "HH:MM")
-            {
-                txtHour.Text = "";
-            }
-            
-        }
-
-        private void txtHour_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtHour.Text == "")
-            {
-                txtHour.Text = "HH:MM";
-            }
-            
-        }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+
             var newTurn = new Turn()
             {
                 Patient = patient,
                 Paid = (bool)chkPaid.IsChecked,
-                Schedule = DateTime.ParseExact(txtDate.Text + txtHour.Text, "dd/MM/yyyyHH:mm", CultureInfo.InvariantCulture),
+                Schedule = dtpDate.SelectedDate.Value + tmpTime.SelectedTime.Value.TimeOfDay,
                 Medic = (Medic)cmbMedics.SelectedItem
             };
 
             _context.Turns.Add(newTurn);
             _context.SaveChanges();
+            Application.Current.MainWindow.Content = new MainTurnUserControl();
+
         }
     }
 }

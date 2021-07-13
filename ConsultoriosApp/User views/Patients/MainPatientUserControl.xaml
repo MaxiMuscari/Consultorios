@@ -24,7 +24,7 @@
         </StackPanel>
         
         <DockPanel Grid.Row="1">
-            <DataGrid x:Name="PacientDataGrid" AutoGenerateColumns="False" 
+            <DataGrid x:Name="PatientDataGrid" AutoGenerateColumns="False" 
               EnableRowVirtualization="True" 
               ItemsSource="{Binding Source={StaticResource pacientViewSource}}" 
               RowDetailsVisibilityMode="VisibleWhenSelected" CanUserAddRows="False" IsReadOnly="True">

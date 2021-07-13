@@ -31,8 +31,6 @@ namespace ConsultoriosApp
         {
             var patient = new Patient(txtName.Text, txtSurname.Text, txtDNI.Text, txtAddress.Text, txtMedicalSecurity.Text, txtPhoneNumber.Text);
             _context.Patients.Add(patient);
-            //txtClean();
-            //validationClean();
             _context.SaveChanges();
             Application.Current.MainWindow.Content = new MainPatientUserControl();
         }
@@ -41,25 +39,6 @@ namespace ConsultoriosApp
             Application.Current.MainWindow.Content = new MainPatientUserControl();
         }
 
-        //public void txtClean()
-        //{
-        //    txtName.Text = "";
-        //    txtSurname.Text = "";
-        //    txtDNI.Text = "";
-        //    txtMedicalSecurity.Text = "";
-        //    txtPhoneNumber.Text = "";
-        //    txtAddress.Text = "";
-        //}
-
-        //public void validationClean()
-        //{
-        //    nameValidationMsj.Text = "";
-        //    surnameValidationMsj.Text = "";
-        //    DNIValidationMsj.Text = "";
-        //    medicalSecurityValidationMsj.Text = "";
-        //    phoneNumberValidationMsj.Text = "";
-        //    addressValidationMsj.Text = "";
-        //}
         private void txtName_TextChanged(object sender, TextChangedEventArgs e)
         {
             var text = txtName.Text;

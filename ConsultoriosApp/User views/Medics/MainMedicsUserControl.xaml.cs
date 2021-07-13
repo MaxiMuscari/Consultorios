@@ -49,8 +49,9 @@ namespace ConsultoriosApp
 
         private void btnModify_Click(object sender, RoutedEventArgs e)
         {
-            _context.SaveChanges();
-            Refresh();
+
+            Medic medic = (Medic)MedicDataGrid.SelectedItem;            
+            Application.Current.MainWindow.Content = new ModifyMedicUserControl(medic);
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)

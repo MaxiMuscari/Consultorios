@@ -49,13 +49,13 @@ namespace ConsultoriosApp
         }
         private void btnModify_Click(object sender, RoutedEventArgs e)
         {
-            _context.SaveChanges();
-            Refresh();
+            Patient patient = (Patient)PatientDataGrid.SelectedItem;
+            Application.Current.MainWindow.Content = new ModifyPatientUserControl(patient);
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            var patient = (Patient)PacientDataGrid.SelectedItem;
+            var patient = (Patient)PatientDataGrid.SelectedItem;
             _context.Patients.RemoveRange(patient);
             _context.SaveChanges();
 
@@ -85,7 +85,7 @@ namespace ConsultoriosApp
 
         public void Refresh()
         {
-            PacientDataGrid.Items.Refresh();
+            PatientDataGrid.Items.Refresh();
         }
 
         private void Search()

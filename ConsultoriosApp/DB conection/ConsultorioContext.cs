@@ -11,11 +11,10 @@ namespace ConsultoriosApp
         public DbSet<Turn> Turns { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Secretary> Secretaries { get; set; }
-        //public DbSet<Especiality> Especialities { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlite("Data Source=Consultorios.db");
-            optionsBuilder.UseSqlServer("Server=DESKTOP-588K2RQ\\SQLEXPRESS;Database=Consultorios;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=SSPI;");
+            optionsBuilder.UseSqlite("Data Source=Consultorios.db");
+            //optionsBuilder.UseSqlServer("Server=DESKTOP-588K2RQ\\SQLEXPRESS;Database=Consultorios;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=SSPI;");
             optionsBuilder.UseLazyLoadingProxies();
             
             base.OnConfiguring(optionsBuilder);

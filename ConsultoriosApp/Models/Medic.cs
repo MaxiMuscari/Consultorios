@@ -13,20 +13,19 @@ namespace ConsultoriosApp
         public string DNI { get; set; }
         public string CUIL { get; set; }
         public string PhoneNumber { get; set; }
-        //public virtual Especiality Especiality { get; set; }
         public Especialities Especialities { get; set; }
         public string Names { get { return $"{Name} {Surname}"; } }
 
 
 
-        public Medic(string name, string surname, string DNI, string CUIL, string phoneNumber, Especialities especialities)
+        public Medic(string Name, string Surname, string DNI, string CUIL, string PhoneNumber, Especialities Especialities)
         {
-            this.Name = name;
-            this.Surname = surname;
+            this.Name = Name;
+            this.Surname = Surname;
             this.DNI = DNI;
             this.CUIL = CUIL;
-            this.PhoneNumber = phoneNumber;
-            this.Especialities = especialities;
+            this.PhoneNumber = PhoneNumber;
+            this.Especialities = Especialities;
         }
     }
     
